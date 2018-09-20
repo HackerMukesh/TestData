@@ -24,11 +24,6 @@
   </microsoft.web.services3>
   <system.serviceModel>
     <bindings>
-      <basicHttpBinding>
-        <binding name="BasicHttpBinding_IBookingService" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647" closeTimeout="01:50:00" openTimeout="01:50:00" sendTimeout="01:50:00" receiveTimeout="01:50:00">
-          <readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" maxArrayLength="2147483647" maxBytesPerRead="2147483647" maxNameTableCharCount="2147483647" />
-        </binding>
-      </basicHttpBinding>
     </bindings>
     <behaviors>
       <serviceBehaviors>
