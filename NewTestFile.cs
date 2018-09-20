@@ -13,7 +13,7 @@
         <add type="TraceExtension,App_Code" priority="1" group="0"/>      
       </soapExtensionTypes>-->
     </webServices>
-    <compilation debug="true" targetFramework="4.0" />
+   
   </system.web>
   <microsoft.web.services3>
     <diagnostics> 
