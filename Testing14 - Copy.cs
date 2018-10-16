@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+  </configSections>
+  <system.web>
+    <webServices>
+      <soapServerProtocolFactory type="Microsoft.Web.Services3.WseProtocolFactory, Microsoft.Web.Services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+      <!--<soapExtensionTypes>
+        <add type="TraceExtension,App_Code" priority="1" group="0"/>      
+      </soapExtensionTypes>-->
+    </webServices>
+    <compilation debug="true" targetFramework="4.0" />
+  </system.web>
+  <microsoft.web.services3>
+    <diagnostics> 
+      <trace enabled="true" input="InputTrace.webinfo" output="OutputTrace.webinfo" />
+    </diagnostics>
+    <security></security>
+    <policy fileName="wse3policyCache.config" />
+  </microsoft.web.services3>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="BasicHttpBinding_IBookingService" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647" closeTimeout="01:50:00" openTimeout="01:50:00" sendTimeout="01:50:00" receiveTimeout="01:50:00">
+          <readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" maxArrayLength="2147483647" maxBytesPerRead="2147483647" maxNameTableCharCount="2147483647" />
+        </binding>
+      </basicHttpBinding>
+    </bindings>
+    <behaviors>
+      <serviceBehaviors>
+        <behavior>
+          <!-- To avoid disclosing metadata information, set the value below to false and remove the metadata endpoint above before deployment -->
+          <serviceMetadata httpGetEnabled="true" />
+          <!-- To receive exception details in faults for debugging purposes, set the value below to true.  Set to false before deployment to avoid disclosing exception information -->
+          <serviceDebug includeExceptionDetailInFaults="true" />
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+    <serviceHostingEnvironment multipleSiteBindingsEnabled="true" minFreeMemoryPercentageToActivateService="0" />
+  </system.serviceModel>
+  <system.webServer>
+    <modules runAllManagedModulesForAllRequests="true" />
+  </system.webServer>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+      <parameters>
+        <parameter value="mssqllocaldb" />
+      </parameters>
+    </defaultConnectionFactory>
+    <providers>
+    </providers>
+  </entityFramework>
+</configuration>
+<!--ProjectGuid: {2DEE003E-2A98-4BFD-B790-4FFCCFE20782}-->
